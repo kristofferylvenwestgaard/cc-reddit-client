@@ -1,7 +1,10 @@
-const endpoint = "https://www.reddit.com";
-export const getReddit = async () => {
-    const response = await fetch(`${endpoint}`)
+const endpoint = "https://www.reddit.com/";
+export const getPopular = async () => {
+    const response = await fetch(`${endpoint}r/popular.json`)
     if(response.ok) {
-        
+        const json = await response.json();
+        return json;
+    } else {
+        throw response;
     }
 }
