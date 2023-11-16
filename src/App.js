@@ -1,9 +1,7 @@
 import './App.css';
-import Card from './components/Card';
 import Popular from './components/Popular';
 import SubReddits from './components/SubReddits';
 import Container from './components/Container';
-import { getReddit } from './api/redditApi';
 
 function App() {
   return (
