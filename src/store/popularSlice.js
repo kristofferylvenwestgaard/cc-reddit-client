@@ -16,11 +16,6 @@ const popularSlice = createSlice({
     initialState,
     //Reducers use actions to make updates to the state.
     reducers: {
-        //Not used at the moment,
-        setPosts(state, action) {
-            state.posts = action.payload;
-        },
-
         //Takes a state as parameter and sets isLoading state to true
         startGetPosts(state) {
             state.isLoading = true;
@@ -41,7 +36,7 @@ const popularSlice = createSlice({
     }
 });
 
-//Exports the reducers, amnd generates actions for the popularSlice
+//Exports the reducers, and generates actions for the popularSlice
 export const {
     getPostsFailed,
     getPostsSuccess,

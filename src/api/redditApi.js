@@ -11,3 +11,14 @@ export const getPopular = async () => {
         throw response;
     }
 }
+
+
+export const getSubReddit = async (searchQuery) => {
+    const response =  await fetch(`${endpoint}search.json?q=${searchQuery}`)
+    if(response.ok){
+        const json = await response.json();
+        return json;
+    } else {
+        throw response;
+    }
+} 

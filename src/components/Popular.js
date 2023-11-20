@@ -13,30 +13,32 @@ const Popular = () => {
 
     //Fetching popular posts from Reddit and updates state, 1sec after the virtual DOMs initial render
     useEffect(() => {
-    setTimeout(() => { 
-        dispatch(fetchPosts()) 
-    },1000);
+        setTimeout(() => { 
+            dispatch(fetchPosts()) 
+        },1000);
     }, []);
 
     console.log(posts);
     
     return (
         <>
-            <h2>Popular</h2>
-            <p>isLoading: {isLoading}</p>
+            {/* <p>isLoading: {isLoading}</p>
             <p>error: {error}</p>
-            <p>posts: {posts.length}</p>
-            <div>
-                {
-                    //Maps the posts state array to a new array containing a paragraph with title and an image with thumbnail.
-                    posts.map(item => (
-                    <>
-                        <p>{item.data.title}</p>
-                        {item.data.thumbnail && <img src={item.data.thumbnail} alt={item.data.title} />}
-                    </>
-                    ))
-                }
-            </div>
+            <p>posts: {posts.length}</p> */}
+
+            {
+                //Maps the posts state array to a new array containing a paragraph with title and an image with thumbnail.
+                posts.map(item => (
+                <>
+                    <div className='w-2/4 mb-8 p-4 rounded-lg drop-shadow-md bg-white border-slate-100 border'>
+                        <p className="text-label font-medium text-slate-600 mb-4 p-1 rounded bg-red-100 inline-block lowercase">{item.data.subreddit}</p>
+                        <h3 className="text-h6 mb-2 truncate">{item.data.title}</h3>
+                        <p className="text-label text-slate-500">{item.data.author}</p>
+                        { item.data.selftext && <p className="truncate mt-4">{item.data.selftext}</p> }
+                    </div>
+                </>
+                ))
+            }
         </>
     );
 }
