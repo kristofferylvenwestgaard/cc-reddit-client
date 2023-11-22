@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSearchResult } from "../store/subRedditSlice";
+import { useNavigate } from "react-router-dom"
 
 const Search = () => {
     // let searchInput = document.getElementById("searchField");
     const [searchTerm, setSearchTerm] = useState("");
-
+    const navigate = useNavigate();
     //Uses the popular reducers and assign it to popular
     const searchResult = useSelector((state) => state.subReddits);
     //Set state object with the search state
@@ -27,6 +28,7 @@ const Search = () => {
             console.log(searchTerm);
             dispatch(fetchSearchResult(searchTerm));
             setSearchTerm("");
+            navigate('/searchresult');   
         }
     }
 
